@@ -25,5 +25,6 @@ Once the data is generated (or downloaded from the repository) for a figure that
 
 ## Contact information ##
 
-* Prateek Verma, Email: prateek4d@gmail.com
 * Spandan Pathak, Email: pathakspandan@gmail.com
+* Prateek Verma, Email: prateek4d@gmail.com
+* Supratim Sengupta, Email: supratim.sen@iiserkol.ac.in
