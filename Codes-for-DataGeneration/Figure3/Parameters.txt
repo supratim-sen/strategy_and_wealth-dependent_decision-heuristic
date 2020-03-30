@@ -1,0 +1,3 @@
+Heatmaps:   N = 50, Init. GINI = 0.2, Runs = 30, $\lambda=0.001$, State after 20 rounds'
+
+Strategy, environment vs p0: N = 50, Runs = 30, re = 0.3, $\lambda=0.001$, Initial GINI: 0.2

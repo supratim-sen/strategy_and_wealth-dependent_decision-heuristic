@@ -1,0 +1,1 @@
+Figure2:   N = 50, Init. GINI = 0.2, Runs = 100, \lambda=0.001, \beta = 0.001, re =0.3, p0 = 0.7, r = 2, b = 0.1.
