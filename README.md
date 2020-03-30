@@ -1,2 +1,2 @@
 # strategy_and_wealth-dependent_decision-heuristic
-This repository contains all codes for genrating figures used in the new decision heuristic paper of March2020
+This repository contains all codes and data for genrating figures of the decision heuristic paper of April2020
