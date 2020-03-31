@@ -1,6 +1,6 @@
-% Plotting data from .txt file produced from 'main_WDM_attempt2.m'
+% Plotting data for figure 2 of the paper from .txt file produced from "main_env_update.m" and "main_fermi.m"
 
-beta = '001';
+beta = '01';
 gini = 2;
 filext = ['beta_',num2str(beta),'_gini_',num2str(gini)];
 
@@ -47,7 +47,7 @@ axis([1,M+1,0,1])
 legend('Environment dependent update', 'Fermi update')
 title(num2str(['GINI = 0.',num2str(gini)]))
 grid on
-%print(num2str(['fraction_C_fermi',filext,'.eps']),'-depsc')
+print(num2str(['fraction_C_fermi',filext,'.eps']),'-depsc')
 print(num2str(['fraction_C_fermi',filext,'.png']),'-dpng','-r300')
 hold off
 
@@ -71,7 +71,7 @@ axis([1,M+1,0,0.5])
 legend('Environment dependent update', 'Fermi update')
 title(num2str(['GINI = 0.',num2str(gini)]))
 grid on
-%print(num2str(['gini_fermi',filext,'.eps']),'-depsc')
+print(num2str(['gini_fermi',filext,'.eps']),'-depsc')
 print(num2str(['gini_fermi',filext,'.png']),'-dpng','-r300')
 hold off
 
@@ -95,6 +95,6 @@ axis([1,M+1,0,35])
 legend('Environment dependent update', 'Fermi update')
 title(num2str(['GINI = 0.',num2str(gini)]))
 grid on
-%print(num2str(['fraction_C_fermi',filext,'.eps']),'-depsc')
+print(num2str(['fraction_C_fermi',filext,'.eps']),'-depsc')
 print(num2str(['Deg_fermi',filext,'.png']),'-dpng','-r300')
 hold off

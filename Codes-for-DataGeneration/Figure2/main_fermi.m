@@ -1,5 +1,4 @@
 close all; clear; clc;
-%% Spandan Pathak Code Recreation - attempt 2 
 % Cooperation rules affecting wealth distribution in dynamical social networks
 
 %% Initializing
@@ -17,7 +16,7 @@ b = 100;           % Unitary Benefit of co-operation
 p_rewire = 0.3;    % Rewiring probability
 itrs = 100;        % Number of iterations
 bias = 0.1;        % bias factor in probability of cooperation term
-beta = 0.001;        % selection pressure
+beta = 0.01;       % selection pressure
 
 % Empty matrix for storing results
 C_array = zeros(itrs,M); % Stores number of cooperators in every round over iteration
@@ -36,8 +35,8 @@ for i = 1:itrs
     W_initial = randsample([rich_W, poor_W],n,true,[p_rich,1-p_rich]);
     W_initial = W_initial(randperm(n))';     % random permutation of array and transpose
     GINI_initial = Gini_cal(W_initial);     % GINI Coefficient
-    %p0 =  1/(1 + exp(-1*((-1.017021)*GINI_initial + (0.8130213))));  % initial probability of cooperation
-    p0=0.7;
+    % p0 =  1/(1 + exp(-1*((-1.017021)*GINI_initial + (0.8130213))));  % initial probability of cooperation
+    p0 = 0.7;
     % In 1st iteration initial wealth, graph, GINI is same.
     W = W_initial; % Wealth vector in 1st iteration is same for all 1st iterations. 
     GINI = GINI_initial; % initial GINI in 1st iteration
@@ -58,12 +57,13 @@ for i = 1:itrs
     for j = 2:M+1
         % Updating Wealth because of playing 'Game' (for j+1 round)
         W = W + b*Adj*C - c*(sum(Adj,2)).*C;
+        Payoff = b*Adj*C - c*(sum(Adj,2)).*C;
         GINI = Gini_cal(W);     % GINI Coefficient changes w.r.t. W (for j+1 round)
         
         % Updating Cooperators
         Degree = sum(Adj,2);    % Degree of each node
-        Diff_W = (Adj*W)./Degree - W; % wealth difference required for updating pc
-%        Enviornment = (Adj*C - Adj*(1-C)); % Required for updating pc
+        % Diff_W = (Adj*W)./Degree - W; % wealth difference required for updating pc
+        %        Enviornment = (Adj*C - Adj*(1-C)); % Required for updating pc
 %        Enviornment(Enviornment>0) = 1; % 1 means 'cooperative environment' 
 %        Enviornment(Enviornment<=0) = -1; % % -1 means 'defective environment' 
 %        pc = ( p0 + (1-p0)*tanh(0.001*Diff_W.*Enviornment) - bias ) + heaviside(-Enviornment)*(1-2*p0+2*bias);
@@ -77,7 +77,7 @@ for i = 1:itrs
                 jj = jj + 1;
             else        
                 role = randsample(find(Adj(focal,:)),1);
-                    if rand() < 1/(1+exp(beta*(W(focal)-W(role))))
+                    if rand() < 1/(1+exp(beta*(Payoff(focal)-Payoff(role))))
                         C(focal) = C(role);
                     end
                 jj = jj + 1;
@@ -122,10 +122,11 @@ for i = 1:itrs
    end
 end
 % Saving data in txt file:
-dlmwrite('Cooperation_gini_f2_beta001.txt',C_array)
+dlmwrite('Cooperation_gini_f2_beta01.txt',C_array)
 % dlmwrite('Wealth_gini_f2.txt',W_array)
-dlmwrite('GINI_gini_f2_beta001.txt',GINI_array)
-dlmwrite('Degree_gini_f2_beta001.txt',Deg_array)
+dlmwrite('GINI_gini_f2_beta01.txt',GINI_array)
+dlmwrite('Degree_gini_f2_beta01.txt',Deg_array)
+
 
 % figure()
 % % % % hold on
