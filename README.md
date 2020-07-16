@@ -1,4 +1,4 @@
-### This code is associated with the paper "How strategy environment and wealth shape altruistic behaviour: Cooperation rules affecting wealth distribution in dynamic social networks".
+### This code is associated with the paper "How strategy environment and wealth shape altruistic behaviour: Cooperation rules affecting wealth distribution in dynamic networks".
 
 
 ## Overview ##
