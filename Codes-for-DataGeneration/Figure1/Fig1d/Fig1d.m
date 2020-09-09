@@ -28,6 +28,8 @@ set(0,'DefaultTextFontname', 'Arial')
 set(0,'DefaultTextFontSize', 18)
 
 figure()
+set(gcf, 'Units', 'Normalized', 'OuterPosition', [0, 0.04, 1, 0.96]);
+
 plot(Diff_W,pc1,'LineWidth',3,'MarkerSize',5,'Color',[0 0 1],'MarkerFaceColor',[0 0 1])
 hold on
 plot(Diff_W,pc2,'LineWidth',3,'MarkerSize',5,'Color',[0.3 0.3 1],'MarkerFaceColor',[0 0 1])
@@ -45,8 +47,9 @@ line([0 1],[-3000 3000],'Color','k','LineStyle','--')
 line([-3000 3000],[0.5 0.5],'Color','k','LineStyle','--')
 
 axis([-3000,3000,0,1])
-xlabel('Wealth difference')
+xlabel('Relative wealth difference')
 ylabel('Probability of cooperation')
 legend('$p_{0}=0.55$','$p_{0}=0.60$','$p_{0}=0.70$','$p_{0}=0.80$','$p_{0}=0.90$','$p_{0}=0.55$',...
     '$p_{0}=0.60$','$p_{0}=0.70$','$p_{0}=0.80$','$p_{0}=0.90$','Interpreter','latex','Location','northeastoutside')
 
+print('fig1d.png','-dpng','-r300')
