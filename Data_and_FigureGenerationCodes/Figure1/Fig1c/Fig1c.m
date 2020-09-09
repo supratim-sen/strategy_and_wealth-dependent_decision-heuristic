@@ -19,7 +19,7 @@ b = 100;           % Unitary Benefit of co-operation
 p_rewire = 0.3;    % Rewiring probability
 itrs = 1;          % Number of iterations
 bias = 0.1;        % bias factor in probability of cooperation term
-lamda = 0.000001;
+lamda = 0.001;
 % Empty matrix for storing results
 C_array = zeros(itrs,M); % Stores number of cooperators in every round over iteration
 W_array = zeros(itrs,M+1); % Stores average wealth in every round over iteration 
