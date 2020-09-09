@@ -1,6 +1,6 @@
 ## Note ##
 
-The plot for Figure 1c and 1d is generated directly from the file given in subdirectory 'DataGeneration/Figure1'. Plot generation does not require any data in these cases.
+The plot for Figure 1c is generated directly from the file given in subdirectory 'DataGeneration/Figure1'. Plot generation does not require any data in these cases.
 
 
 ## Contact information ##
