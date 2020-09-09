@@ -1,0 +1,9 @@
+No. of nodes(N) = 50, Initial GINI = 0.2, Number of rounds(M) = 20, Number of runs(S) = 50
+p_in(probability of cooperation in 1st round) = 0.7, bias term(b) = 0.1, Rewiring rate(re) = 0.3
+
+Standard rewiring parameters:
+pr = 0.87
+pm = 0.93
+pb = 0.7
+pe = 0.3
+ps = 0.2

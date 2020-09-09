@@ -1,3 +1,0 @@
-Strategy, wealth, environment vs re: N = 50, Runs = 30, p0 = 0.7, $\lambda=0.001$, Initial GINI: 0.2
-
-Degree vs re: N = 50, Runs = 50, p0 = 0.7, $\lambda=0.001$, Initial GINI: 0.2

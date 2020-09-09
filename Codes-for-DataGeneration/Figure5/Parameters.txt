@@ -1,6 +1,0 @@
-Strategy, wealth vs lambda: N = 50, Runs = 30, p0 = 0.7, re=0.3, Initial GINI: 0.2
-
-Strategy jumps vs lambda: N = 50, Runs = 50, p0 = 0.7, re=0.3, Initial GINI: 0.2
-
-lambda vs p0 heatmap: N = 50, Runs = 30, re=0.3, Initial GINI: 0.2, Final GINI after 20 rounds.
-
