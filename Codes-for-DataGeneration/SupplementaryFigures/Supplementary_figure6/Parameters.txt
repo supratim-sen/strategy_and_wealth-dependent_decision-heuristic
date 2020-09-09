@@ -1,0 +1,15 @@
+No. of nodes(N) = 17, Initial GINI = 0,0.2,0.4 respectively. Number of rounds(M) = 20, Number of runs(S) = 1000
+p_in(probability of cooperation in 1st round) = p0, Rewiring rate(re) = 0.3
+
+Visible wealth case: p0 values chosen from Christakis paper to be 0.69, 0.65, 0.60 for Initial GINI = 0 (None),0.2 (Low) and 0.4 (High) respectively.
+bias term(b) = 0.1, lambda = 0.001
+
+Invisible wealth case: p0 = 0.716 (Christakis paper), b = 0, lambda = 0
+
+
+Standard rewiring parameters:
+pr = 0.87
+pm = 0.93
+pb = 0.7
+pe = 0.3
+ps = 0.2

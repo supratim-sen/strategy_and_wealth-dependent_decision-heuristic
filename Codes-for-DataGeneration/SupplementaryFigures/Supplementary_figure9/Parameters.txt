@@ -1,0 +1,10 @@
+No. of nodes(N) = 50, Initial GINI = 0.2. Number of rounds(M) = 50, Number of runs(S) = 100
+p_in(probability of cooperation in 1st round) = p0 = 0.65, lambda = 0.001
+
+
+Rewiring probabilities:
+pr = 1.0
+pm = 1.0
+pb = 1.0
+pe = 0.0
+ps = 0.0

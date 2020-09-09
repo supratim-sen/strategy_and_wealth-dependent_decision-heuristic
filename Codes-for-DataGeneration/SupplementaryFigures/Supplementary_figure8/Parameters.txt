@@ -1,0 +1,11 @@
+No. of nodes(N) = 50, Initial GINI = 0,0.2,0.4 respectively. Number of rounds(M) = 20, Number of runs(S) = 100
+p_in(probability of cooperation in 1st round) = p0, lambda = 0.001
+
+p0 values taken from Christakis paper(0.69,0.65,0.6 respectively)
+
+Rewiring parameters:
+pr = 1.0
+pm = 1.0
+pb = 1.0
+pe = 0.0
+ps = 0.0
