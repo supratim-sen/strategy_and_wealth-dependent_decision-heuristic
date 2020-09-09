@@ -28,7 +28,7 @@ set(0,'DefaultTextFontname', 'Arial')
 set(0,'DefaultTextFontSize', 18)
 
 figure()
-set(gcf, 'Units', 'Normalized', 'OuterPosition', [0, 0.04, 1, 0.96]);
+% set(gcf, 'Units', 'Normalized', 'OuterPosition', [0, 0.04, 1, 0.96]);
 
 plot(Diff_W,pc1,'LineWidth',3,'MarkerSize',5,'Color',[0 0 1],'MarkerFaceColor',[0 0 1])
 hold on
