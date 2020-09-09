@@ -1,5 +1,7 @@
 % Plotting data for figure 2 of the paper from .txt file produced from "main_env_update.m" and "main_fermi.m"
 
+close all
+% Plotting data from .txt file produced from figure2 code
 beta = '01';
 gini = 2;
 filext = ['beta_',num2str(beta),'_gini_',num2str(gini)];
@@ -19,13 +21,15 @@ iterations = n(1);
 rounds = n(2);
 M = 30;
 
+lineStyles = linspecer(2,'qualitative');
+
 % Change default axes fonts.
 set(0,'DefaultAxesFontName', 'Arial')
-set(0,'DefaultAxesFontSize', 18)
+set(0,'DefaultAxesFontSize', 24)
 
 % Change default text fonts.
 set(0,'DefaultTextFontname', 'Arial')
-set(0,'DefaultTextFontSize', 18)
+set(0,'DefaultTextFontSize', 24)
 
 %% Cooperation
 upper_dr = mean(C_0) + std(C_0);
@@ -34,20 +38,23 @@ upper_res = mean(C_2) + std(C_2);
 lower_res = mean(C_2) - std(C_2);
 
 figure()
-plot(1:rounds,mean(C_0),'-s','LineWidth',2.0,'MarkerSize',5,'Color',[0 0 1],'MarkerFaceColor',[0 0 1]);
+plot(1:rounds,mean(C_0),'-s','LineWidth',2.0,'MarkerSize',5,'Color',lineStyles(1,:),'MarkerFaceColor',lineStyles(1,:));
 hold on
-plot(1:rounds,mean(C_2),'-s','LineWidth',2.0,'MarkerSize',5,'Color',[0.8 0.2 0.2],'MarkerFaceColor',[0.8 0.2 0.2]);
-fill([1:rounds fliplr(1:rounds)],[upper_dr fliplr(lower_dr)],'b','EdgeColor','none')
+plot(1:rounds,mean(C_2),'-s','LineWidth',2.0,'MarkerSize',5,'Color',lineStyles(2,:),'MarkerFaceColor',lineStyles(2,:));
+fill([1:rounds fliplr(1:rounds)],[upper_dr fliplr(lower_dr)],lineStyles(1,:),'EdgeColor','none')
 alpha(0.2)
-fill([1:rounds fliplr(1:rounds)],[upper_res fliplr(lower_res)],'r','EdgeColor','none')
+fill([1:rounds fliplr(1:rounds)],[upper_res fliplr(lower_res)],lineStyles(2,:),'EdgeColor','none')
 alpha(0.2)
 xlabel('Number of rounds')
 ylabel('Fraction of cooperators')
 axis([1,M+1,0,1])
-legend('Environment dependent update', 'Fermi update')
-title(num2str(['GINI = 0.',num2str(gini)]))
+legend('Environment dependent update', 'Pairwise comparison update')
+%title(num2str(['GINI = 0.',num2str(gini)]))
 grid on
-print(num2str(['fraction_C_fermi',filext,'.eps']),'-depsc')
+box off
+%axis square
+set(gca,'XMinorTick','on','YMinorTick','on')
+print(num2str(['fraction_C_fermi',filext,'.eps']),'-depsc2')
 print(num2str(['fraction_C_fermi',filext,'.png']),'-dpng','-r300')
 hold off
 
@@ -58,20 +65,26 @@ upper_res = mean(G_2) + std(G_2);
 lower_res = mean(G_2) - std(G_2);
 
 figure()
-plot(1:rounds,mean(G_0),'-s','LineWidth',2.0,'MarkerSize',5,'Color',[0 0 1],'MarkerFaceColor',[0 0 1]);
+% plot(1:rounds,mean(G_0),'-s','LineWidth',2.0,'MarkerSize',5,'Color',[0 0 1],'MarkerFaceColor',[0 0 1]);
+plot(1:rounds,mean(G_0),'-s','LineWidth',2.0,'MarkerSize',5,'Color',lineStyles(1,:),'MarkerFaceColor',lineStyles(1,:));
 hold on
-plot(1:rounds,mean(G_2),'-s','LineWidth',2.0,'MarkerSize',5,'Color',[0.8 0.2 0.2],'MarkerFaceColor',[0.8 0.2 0.2]);
-fill([1:rounds fliplr(1:rounds)],[upper_dr fliplr(lower_dr)],'b','EdgeColor','none')
+% plot(1:rounds,mean(G_2),'-s','LineWidth',2.0,'MarkerSize',5,'Color',[0.8 0.2 0.2],'MarkerFaceColor',[0.8 0.2 0.2]);
+plot(1:rounds,mean(G_2),'-s','LineWidth',2.0,'MarkerSize',5,'Color',lineStyles(2,:),'MarkerFaceColor',lineStyles(2,:));
+
+fill([1:rounds fliplr(1:rounds)],[upper_dr fliplr(lower_dr)],lineStyles(1,:),'EdgeColor','none')
 alpha(0.2)
-fill([1:rounds fliplr(1:rounds)],[upper_res fliplr(lower_res)],'r','EdgeColor','none')
+fill([1:rounds fliplr(1:rounds)],[upper_res fliplr(lower_res)],lineStyles(2,:),'EdgeColor','none')
 alpha(0.2)
 xlabel('Number of rounds')
 ylabel('GINI coefficient')
 axis([1,M+1,0,0.5])
-legend('Environment dependent update', 'Fermi update')
-title(num2str(['GINI = 0.',num2str(gini)]))
+legend('Environment dependent update', 'Pairwise comparison update')
+%title(num2str(['GINI = 0.',num2str(gini)]))
 grid on
-print(num2str(['gini_fermi',filext,'.eps']),'-depsc')
+box off
+set(gca,'XMinorTick','on','YMinorTick','on')
+%axis square
+print(num2str(['gini_fermi',filext,'.eps']),'-depsc2')
 print(num2str(['gini_fermi',filext,'.png']),'-dpng','-r300')
 hold off
 
@@ -82,19 +95,22 @@ upper_res = mean(Deg_2) + std(Deg_2);
 lower_res = mean(Deg_2) - std(Deg_2);
 
 figure()
-plot(1:rounds,mean(Deg_0),'-s','LineWidth',2.0,'MarkerSize',5,'Color',[0 0 1],'MarkerFaceColor',[0 0 1]);
+plot(1:rounds,mean(Deg_0),'-s','LineWidth',2.0,'MarkerSize',5,'Color',lineStyles(1,:),'MarkerFaceColor',lineStyles(1,:));
 hold on
-plot(1:rounds,mean(Deg_2),'-s','LineWidth',2.0,'MarkerSize',5,'Color',[0.8 0.2 0.2],'MarkerFaceColor',[0.8 0.2 0.2]);
-fill([1:rounds fliplr(1:rounds)],[upper_dr fliplr(lower_dr)],'b','EdgeColor','none')
+plot(1:rounds,mean(Deg_2),'-s','LineWidth',2.0,'MarkerSize',5,'Color',lineStyles(2,:),'MarkerFaceColor',lineStyles(2,:));
+fill([1:rounds fliplr(1:rounds)],[upper_dr fliplr(lower_dr)],lineStyles(1,:),'EdgeColor','none')
 alpha(0.2)
-fill([1:rounds fliplr(1:rounds)],[upper_res fliplr(lower_res)],'r','EdgeColor','none')
+fill([1:rounds fliplr(1:rounds)],[upper_res fliplr(lower_res)],lineStyles(2,:),'EdgeColor','none')
 alpha(0.2)
 xlabel('Number of rounds')
 ylabel('Average Degree')
-axis([1,M+1,0,35])
-legend('Environment dependent update', 'Fermi update')
-title(num2str(['GINI = 0.',num2str(gini)]))
+axis([1,M+1,0,38])
+legend('Environment dependent update', 'Pairwise comparison update')
+%title(num2str(['GINI = 0.',num2str(gini)]))
 grid on
-print(num2str(['fraction_C_fermi',filext,'.eps']),'-depsc')
+box on
+set(gca,'XMinorTick','on','YMinorTick','on')
+% axis square
+print(num2str(['fraction_C_fermi',filext,'.eps']),'-depsc2')
 print(num2str(['Deg_fermi',filext,'.png']),'-dpng','-r300')
 hold off

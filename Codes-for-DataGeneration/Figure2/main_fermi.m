@@ -1,4 +1,5 @@
 close all; clear; clc;
+%% Pairwise Comparison rule
 % Cooperation rules affecting wealth distribution in dynamical social networks
 
 %% Initializing
@@ -26,9 +27,6 @@ GINI_array = zeros(itrs,M+1); % Stores degree of each node in every round over i
 
 % Initial Graph
 [Adj_initial,n_edges_initial] = Erdos_Renyi_Graph(n,p_rewire); % Function generates Adjacency matrix for Erdos Renyi Graph
-%Adj_initial = triu(randi([0,1],n,n),1);
-%Adj_initial = Adj_initial + Adj_initial';
-%n_edges_initial = sum(sum(Adj_initial))/2;
 
 for i = 1:itrs
     % Initiallizing wealth, probability of coooperation
@@ -62,13 +60,6 @@ for i = 1:itrs
         
         % Updating Cooperators
         Degree = sum(Adj,2);    % Degree of each node
-        % Diff_W = (Adj*W)./Degree - W; % wealth difference required for updating pc
-        %        Enviornment = (Adj*C - Adj*(1-C)); % Required for updating pc
-%        Enviornment(Enviornment>0) = 1; % 1 means 'cooperative environment' 
-%        Enviornment(Enviornment<=0) = -1; % % -1 means 'defective environment' 
-%        pc = ( p0 + (1-p0)*tanh(0.001*Diff_W.*Enviornment) - bias ) + heaviside(-Enviornment)*(1-2*p0+2*bias);
-%        pc = heaviside(Enviornment).*( p0 + (1-p0)*tanh(0.001*Diff_W) - bias ) + heaviside(-Enviornment).*( 1 - p0 - (1-p0)*tanh(0.001*Diff_W) + bias );
-%        C = (rand(n,1)<pc); % Decision of each node in j+1 round
         focal_vec = randperm(n);
         jj = 1;
         while jj <= n
@@ -126,7 +117,6 @@ dlmwrite('Cooperation_gini_f2_beta01.txt',C_array)
 % dlmwrite('Wealth_gini_f2.txt',W_array)
 dlmwrite('GINI_gini_f2_beta01.txt',GINI_array)
 dlmwrite('Degree_gini_f2_beta01.txt',Deg_array)
-
 
 % figure()
 % % % % hold on
